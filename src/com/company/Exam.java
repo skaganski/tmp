@@ -39,8 +39,8 @@ public class Exam extends Application {
     Label labelOutPutPrice = new Label ("Price today:");
     Label leftAtShops = new Label ("Left at shops:");
     Label totalMoneyBySolding = new Label ("Total Revenue:");
-    Label moneyBySoldingOneProduct = new Label ("Revenue by solding 1pcs");
     Label dayCount = new Label ("Statistic of days (count):");
+    Label bestPrice = new Label ("Best price (starting from 2nd day:");
     ArrayList<Double> arrayAmountSent = new ArrayList<>();
     ArrayList<Double> arraySold = new ArrayList<>();
     ArrayList<Double> arrayPrice = new ArrayList<>();
@@ -101,29 +101,28 @@ public class Exam extends Application {
                 gridPaneResult.add(labelOutPutSold, 0, 2);
                 gridPaneResult.add(new Label(soldProducts), 0, 3);
                 //price of product
-                String productPrice = String.valueOf(object.pricesOfTheProduct(arrayPrice));
+                String productPrice = String.valueOf(result3);
                 gridPaneResult.add(labelOutPutPrice, 0, 4);
                 gridPaneResult.add(new Label(productPrice), 0, 5);
                 //products left at shop
                 gridPaneResult.add(leftAtShops, 0, 6);
                 String leftProductAtShop=String.valueOf(object.amountLeft(arrayAmountSent, arraySold));
                 gridPaneResult.add(new Label(leftProductAtShop), 0, 7);
-                //revenue for 1 product
-                gridPaneResult.add(moneyBySoldingOneProduct, 0, 8);
-                String moneyFromOne=String.valueOf((object.revenueForOneProduct(arrayPrice)));
-                gridPaneResult.add(new Label(moneyFromOne), 0, 9);
-                primaryStage.setScene(sceneOutPut);
                 //total revenue;
-                gridPaneResult.add(totalMoneyBySolding, 0, 10);
+                gridPaneResult.add(totalMoneyBySolding, 0, 8);
                 String totalRevenue = String.valueOf(object.totalRevenue(arrayPrice, arraySold));
-                gridPaneResult.add(new Label(totalRevenue), 0, 11);
-
+                gridPaneResult.add(new Label(totalRevenue), 0, 9);
                 //days counting
-                gridPaneResult.add(dayCount, 0, 12);
+                gridPaneResult.add(dayCount, 0, 10);
                 String dayCountNumber = String.valueOf(object.daysCounting(arrayDayCount));
-                gridPaneResult.add(new Label(dayCountNumber), 0, 13);
+                gridPaneResult.add(new Label(dayCountNumber), 0, 11);
+                //best Price
+                gridPaneResult.add(bestPrice, 0, 12);
+                String showBestPrice = String.valueOf(object.bestPrice(arrayPrice, arraySold));
+                gridPaneResult.add(new Label(showBestPrice), 0, 13);
+                // Button
                 gridPaneResult.add(backButton, 0, 14);
-
+                primaryStage.setScene(sceneOutPut);
 
             }
 
